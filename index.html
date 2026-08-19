@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Ayuda Espiritual | Tarot, Astrología y Energía</title>
-
-<meta name="description"
-      content="Tarot, astrología, signos, piedras y orientación espiritual. Descubrí tu energía y realizá tu consulta.">
+<title>Ayuda Espiritual | Tarot & Astrología</title>
 
 <style>
-
-/* =========================
-   GENERAL
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -29,168 +18,243 @@ html{
 }
 
 body{
-    font-family:Georgia, "Times New Roman", serif;
-    background:#090617;
-    color:#f7f0df;
-    line-height:1.6;
+    font-family:Georgia,"Times New Roman",serif;
+    background:#08050f;
+    color:#eee5ff;
+    overflow-x:hidden;
 }
 
-/* =========================
-   FONDO ESPIRITUAL
-========================= */
+/* ===== FONDO ===== */
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-
+body{
     background:
-        radial-gradient(circle at 15% 20%, rgba(137,72,190,.30), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(35,180,170,.18), transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(212,175,55,.12), transparent 30%),
-        linear-gradient(135deg,#080512,#170c2d,#071b27);
-
-}
-
-body::after{
-    content:"✦     ✧       ✦    ✧       ✦
-       ☾
-   ✧       ✦        ✧
-       ✦        ☽
- ✧       ✦      ✧       ✦";
-
-    position:fixed;
-    inset:0;
-    z-index:-1;
-
-    white-space:pre;
-    overflow:hidden;
-
-    font-size:24px;
-    line-height:4;
-    letter-spacing:25px;
-
-    color:rgba(255,255,255,.25);
-
-    pointer-events:none;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:40px 20px;
-
-    background:
-        radial-gradient(circle at center,
-        rgba(103,52,150,.25),
-        transparent 50%);
-}
-
-.hero{
-    max-width:900px;
-}
-
-.moon{
-    font-size:90px;
-
-    filter:drop-shadow(0 0 20px rgba(255,255,255,.4));
-
-    animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
-
-}
-
-h1{
-    font-size:clamp(42px,9vw,85px);
-
-    color:#e3bd55;
-
-    letter-spacing:3px;
-
-    text-shadow:
-        0 0 20px rgba(212,175,55,.25);
+    radial-gradient(circle at 50% 0%,#38205d 0%,transparent 35%),
+    radial-gradient(circle at 10% 60%,#151b45 0%,transparent 30%),
+    linear-gradient(180deg,#05030a,#0d0719 55%,#030207);
 }
 
 .stars{
-    color:#e3bd55;
-    font-size:27px;
-    letter-spacing:10px;
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-3;
+    background-image:
+      radial-gradient(circle,#fff 1px,transparent 1px),
+      radial-gradient(circle,#d9b7ff 1px,transparent 1px);
+    background-size:90px 90px,140px 140px;
+    animation:stars 20s linear infinite;
+    opacity:.35;
+}
+
+@keyframes stars{
+    from{transform:translateY(0)}
+    to{transform:translateY(90px)}
+}
+
+/* ===== LUNA ===== */
+
+.moon{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:#eee4c7;
+    box-shadow:0 0 50px #fff2bd;
+    top:12%;
+    right:12%;
+    opacity:.9;
+}
+
+.moon:after{
+    content:"";
+    position:absolute;
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    background:#130b20;
+    left:25px;
+    top:-10px;
+}
+
+/* ===== PORTADA ===== */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:40px 20px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:850px;
+}
+
+.small-title{
+    color:#cda94b;
+    letter-spacing:6px;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+h1{
+    font-size:clamp(45px,9vw,90px);
     margin:15px 0;
+    color:#e2bd62;
+    text-shadow:
+      0 0 15px #cda94b55,
+      0 0 45px #9c55c955;
 }
 
 .subtitle{
-    color:#b99eea;
-    font-size:23px;
-    margin-bottom:25px;
+    color:#cbb3e8;
+    font-size:22px;
 }
 
 .hero-text{
-    max-width:680px;
-    margin:auto;
-
-    color:#e4dfee;
-    font-size:18px;
+    max-width:650px;
+    margin:25px auto;
+    color:#cfc7d9;
+    font-size:17px;
 }
-
-/* =========================
-   BOTONES
-========================= */
 
 .button{
     display:inline-block;
-
-    margin-top:30px;
-
     padding:15px 30px;
-
     border-radius:50px;
-
-    background:#16a98f;
-
-    color:white;
-
     text-decoration:none;
-
-    font-weight:bold;
-
+    color:white;
+    background:linear-gradient(135deg,#8c4bc2,#bd8b2e);
+    box-shadow:0 10px 30px #0008;
     transition:.3s;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.35);
+    font-weight:bold;
+    border:1px solid #e1bd6355;
 }
 
 .button:hover{
-    transform:translateY(-4px);
-    background:#23c6aa;
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 15px 40px #8c4bc255;
 }
 
-/* =========================
-   SECCIONES
-========================= */
+/* ===== CARTAS 3D ===== */
+
+.tarot-scene{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    perspective:1000px;
+}
+
+.card3d{
+    position:absolute;
+    width:125px;
+    height:210px;
+    border-radius:10px;
+    border:2px solid #cda94b;
+    background:
+      linear-gradient(135deg,#24133d,#08050d);
+    box-shadow:
+      0 20px 50px #000b,
+      inset 0 0 20px #cda94b22;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    color:#d9b45c;
+    transform-style:preserve-3d;
+    animation:floatCard 6s ease-in-out infinite;
+}
+
+.card3d:before{
+    content:"✦  ☾  ✦";
+    position:absolute;
+    inset:8px;
+    border:1px solid #cda94b88;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
+
+.card1{
+    left:7%;
+    top:25%;
+    transform:rotate(-18deg) rotateY(25deg);
+}
+
+.card2{
+    right:7%;
+    top:35%;
+    transform:rotate(18deg) rotateY(-25deg);
+    animation-delay:1s;
+}
+
+.card3{
+    left:18%;
+    bottom:5%;
+    transform:rotate(12deg) rotateY(20deg);
+    animation-delay:2s;
+}
+
+.card4{
+    right:18%;
+    bottom:8%;
+    transform:rotate(-13deg) rotateY(-20deg);
+    animation-delay:3s;
+}
+
+@keyframes floatCard{
+    0%,100%{
+        translate:0 0;
+    }
+    50%{
+        translate:0 -25px;
+    }
+}
+
+/* ===== VELAS ===== */
+
+.candle{
+    position:absolute;
+    width:45px;
+    height:100px;
+    background:linear-gradient(90deg,#a88438,#f0d47a,#8a6825);
+    border-radius:8px 8px 4px 4px;
+    bottom:10%;
+    box-shadow:0 20px 30px #0009;
+}
+
+.candle1{left:5%}
+.candle2{right:5%;height:125px}
+
+.flame{
+    position:absolute;
+    width:22px;
+    height:35px;
+    background:linear-gradient(#fff,#ffc43d,#d95800);
+    border-radius:50% 50% 50% 50%;
+    top:-32px;
+    left:11px;
+    filter:blur(.3px);
+    box-shadow:0 0 25px #ff9e22;
+    animation:flame 1s infinite alternate;
+}
+
+@keyframes flame{
+    from{transform:scale(.9) rotate(-3deg)}
+    to{transform:scale(1.1) rotate(4deg)}
+}
+
+/* ===== SECCIONES ===== */
 
 section{
-    padding:90px 20px;
+    padding:100px 20px;
 }
 
 .container{
@@ -198,463 +262,300 @@ section{
     margin:auto;
 }
 
-.section-title{
+.title{
     text-align:center;
-
-    color:#e3bd55;
-
-    font-size:40px;
-
+    color:#dfbd63;
+    font-size:42px;
     margin-bottom:15px;
 }
 
-.section-description{
+.description{
     text-align:center;
-
-    max-width:750px;
-
+    max-width:700px;
     margin:0 auto 50px;
-
-    color:#c9c0d8;
-
-    font-size:17px;
+    color:#bdb2ca;
 }
 
-/* =========================
-   SERVICIOS
-========================= */
+/* ===== SERVICIOS ===== */
 
 .cards{
     display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(240px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:25px;
 }
 
-.card{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(46,25,72,.9),
-            rgba(8,30,42,.9)
-        );
-
-    border:1px solid rgba(227,189,85,.35);
-
-    border-radius:25px;
-
+.service{
     padding:35px 25px;
-
     text-align:center;
-
-    transition:.3s;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.25);
+    border-radius:25px;
+    background:linear-gradient(145deg,#211232,#0b0912);
+    border:1px solid #cda94b55;
+    box-shadow:0 20px 45px #0007;
+    transition:.35s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-
-    border-color:#e3bd55;
+.service:hover{
+    transform:translateY(-10px);
+    border-color:#d8b85e;
 }
 
 .icon{
-    font-size:58px;
+    font-size:55px;
     margin-bottom:15px;
 }
 
-.card h3{
-    color:#e3bd55;
-    font-size:25px;
+.service h3{
+    color:#dfbd63;
+    font-size:24px;
     margin-bottom:12px;
 }
 
-.card p{
-    color:#d0c8dc;
+.service p{
+    color:#bbb0c9;
 }
 
-/* =========================
-   DECORACIÓN
-========================= */
+/* ===== JUEGO ===== */
 
-.energy-decoration{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:25px;
-
-    flex-wrap:wrap;
-
-    margin:30px 0 60px;
-
-    font-size:48px;
-}
-
-/* =========================
-   TEST
-========================= */
-
-.test-section{
-
+.game{
     background:
-        radial-gradient(
-            circle at center,
-            rgba(107,51,145,.25),
-            transparent 55%
-        );
+      radial-gradient(circle at center,#40205d44,transparent 55%);
+}
+
+.game-box{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.deck{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin:40px 0;
+    perspective:1000px;
+}
+
+.play-card{
+    width:145px;
+    height:235px;
+    border-radius:12px;
+    cursor:pointer;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        #160c27,
+        #160c27 8px,
+        #24103c 8px,
+        #24103c 16px
+      );
+    border:2px solid #d1a94e;
+    box-shadow:0 20px 35px #0009;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    transition:.6s;
+    transform-style:preserve-3d;
+}
+
+.play-card:hover{
+    transform:rotateY(18deg) translateY(-12px);
+}
+
+.play-card.revealed{
+    background:linear-gradient(145deg,#261445,#08050d);
+    transform:rotateY(360deg);
+}
+
+.result{
+    min-height:80px;
+    margin-top:20px;
+    color:#dfbd63;
+    font-size:23px;
+}
+
+/* ===== TEST ===== */
+
+.test{
+    background:#06040b;
 }
 
 .test-box{
-
-    max-width:850px;
-
+    max-width:800px;
     margin:auto;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(31,17,51,.96),
-            rgba(7,29,40,.96)
-        );
-
-    border:1px solid rgba(227,189,85,.45);
-
-    border-radius:30px;
-
-    padding:40px 25px;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
-
-    text-align:center;
-}
-
-.test-box h3{
-
-    color:#e3bd55;
-
-    font-size:28px;
-
-    margin-bottom:15px;
-}
-
-.form-group{
-
-    margin:20px 0;
-
-    text-align:left;
-
+    padding:35px;
+    border-radius:28px;
+    background:linear-gradient(145deg,#211332,#0a0a10);
+    border:1px solid #cda94b55;
 }
 
 label{
-
     display:block;
-
-    color:#d8cdea;
-
-    margin-bottom:8px;
-
-    font-weight:bold;
+    color:#d7c7e7;
+    margin:18px 0 7px;
 }
 
-select,
-input{
-
+select,input{
     width:100%;
-
     padding:14px;
-
     border-radius:12px;
-
-    border:1px solid rgba(227,189,85,.4);
-
-    background:#100b1d;
-
+    border:1px solid #cda94b66;
+    background:#10091a;
     color:white;
-
     font-size:16px;
-
-}
-
-select:focus,
-input:focus{
-
-    outline:none;
-
-    border-color:#e3bd55;
-
 }
 
 .test-button{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:15px 30px;
-
+    margin-top:25px;
+    padding:14px 28px;
+    border:0;
     border-radius:40px;
-
-    background:#9c62c9;
-
+    cursor:pointer;
+    background:linear-gradient(135deg,#8d4bc0,#bd8d31);
     color:white;
-
-    font-size:16px;
-
     font-weight:bold;
-
-    transition:.3s;
-
+    font-size:16px;
 }
 
-.test-button:hover{
-
-    background:#b67be0;
-
-    transform:translateY(-3px);
-}
-
-/* =========================
-   RESULTADO
-========================= */
-
-.result{
-
+.test-result{
     display:none;
-
     margin-top:30px;
-
-    padding:30px;
-
-    border-radius:22px;
-
-    background:
-        rgba(6,20,30,.8);
-
-    border:1px solid rgba(227,189,85,.35);
-}
-
-.result h3{
-
-    color:#e3bd55;
-
-    font-size:30px;
-
-    margin-bottom:15px;
+    padding:25px;
+    border-radius:20px;
+    background:#080710;
+    border:1px solid #cda94b55;
 }
 
 .stone{
-
-    font-size:65px;
-
-    margin:15px 0;
+    font-size:60px;
+    margin:15px;
 }
 
-.result p{
-
-    color:#d9d2e3;
-
-    margin-bottom:12px;
-}
-
-/* =========================
-   CARTA ASTRAL
-========================= */
-
-.about-box{
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(40,20,60,.9),
-            rgba(7,28,40,.9)
-        );
-
-    padding:45px 30px;
-
-    border-radius:30px;
-
-    border:1px solid rgba(227,189,85,.35);
-}
-
-.about-box p{
-
-    color:#d8d0df;
-
-    margin-bottom:18px;
-}
-
-/* =========================
-   WHATSAPP
-========================= */
+/* ===== CONTACTO ===== */
 
 .contact{
-
     text-align:center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(20,170,145,.16),
-            transparent 50%
-        );
-}
-
-.whatsapp-buttons{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin-top:35px;
 }
 
 .whatsapp{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
 
-    display:inline-block;
-
+.whatsapp a{
     padding:15px 25px;
-
     border-radius:40px;
-
     text-decoration:none;
-
     color:white;
-
-    background:#159c87;
-
-    font-weight:bold;
-
+    background:#159d84;
     transition:.3s;
 }
 
-.whatsapp:hover{
-
-    transform:scale(1.04);
-
-    background:#22c4a5;
+.whatsapp a:hover{
+    transform:scale(1.06);
+    background:#20c5a5;
 }
-
-.gold{
-
-    background:#a47b19;
-}
-
-.gold:hover{
-
-    background:#d4af37;
-}
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
-
-    background:#030812;
-
     text-align:center;
-
-    padding:30px 20px;
-
-    color:#817b8b;
-
-    font-size:14px;
+    padding:35px;
+    color:#766d80;
+    background:#020107;
 }
-
-/* =========================
-   CELULAR
-========================= */
 
 @media(max-width:600px){
 
-    header{
-        min-height:90vh;
-    }
-
     .moon{
-        font-size:65px;
+        width:70px;
+        height:70px;
+        right:7%;
+        top:8%;
     }
 
-    .subtitle{
-        font-size:19px;
+    .card3d{
+        width:75px;
+        height:125px;
+        font-size:25px;
+    }
+
+    .card1{left:2%}
+    .card2{right:2%}
+    .card3{left:5%}
+    .card4{right:5%}
+
+    .candle{
+        transform:scale(.7);
     }
 
     section{
-        padding:65px 18px;
+        padding:70px 18px;
     }
 
-    .section-title{
-        font-size:31px;
+    .title{
+        font-size:32px;
     }
 
-    .card{
-        padding:30px 20px;
+    .play-card{
+        width:100px;
+        height:165px;
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
+<div class="stars"></div>
 
-<!-- =========================
-     PORTADA
-========================= -->
+<!-- PORTADA -->
 
-<header>
+<header class="hero">
 
-<div class="hero">
+<div class="moon"></div>
 
-<div class="moon">☾</div>
+<div class="tarot-scene">
+
+<div class="card3d card1">☾</div>
+<div class="card3d card2">✦</div>
+<div class="card3d card3">♈</div>
+<div class="card3d card4">☽</div>
+
+</div>
+
+<div class="candle candle1">
+<div class="flame"></div>
+</div>
+
+<div class="candle candle2">
+<div class="flame"></div>
+</div>
+
+<div class="hero-content">
+
+<div class="small-title">
+TAROT • ASTROLOGÍA • ENERGÍA
+</div>
 
 <h1>Ayuda Espiritual</h1>
 
-<div class="stars">
-✦ ✧ ✦ ✧ ✦
-</div>
-
 <p class="subtitle">
-
-Tarot • Astrología • Energía • Espiritualidad
-
+Descubrí tu energía. Elegí tu camino.
 </p>
 
 <p class="hero-text">
-
-Un espacio para conectar con tu energía,
-explorar tus emociones y descubrir nuevas
-perspectivas a través del Tarot y la Astrología.
-
+Un espacio interactivo para explorar el Tarot,
+la Astrología, los signos y las piedras asociadas
+tradicionalmente a cada energía.
 </p>
 
 <a class="button"
 href="https://wa.me/5491139543790"
 target="_blank">
-
 💬 Hablar por WhatsApp
-
 </a>
 
 </div>
@@ -662,109 +563,37 @@ target="_blank">
 </header>
 
 
-<!-- =========================
-     DECORACIÓN
-========================= -->
+<!-- SERVICIOS -->
 
 <section>
 
 <div class="container">
 
-<div class="energy-decoration">
+<h2 class="title">Explorá el mundo espiritual</h2>
 
-🕯️ 🔮 🌙 ✨ 💎 🪐 ⭐ 🕯️
-
-</div>
-
-
-<h2 class="section-title">
-
-Explorá tu energía
-
-</h2>
-
-<p class="section-description">
-
-Cada símbolo, planeta y piedra representa
-una energía diferente. Descubrí cuál puede
-acompañarte en este momento.
-
+<p class="description">
+Descubrí diferentes formas de conectar con vos mismo/a.
 </p>
-
 
 <div class="cards">
 
-
-<div class="card">
-
+<div class="service">
 <div class="icon">🔮</div>
-
 <h3>Tarot</h3>
-
-<p>
-
-Lecturas orientativas para explorar
-situaciones, emociones y posibilidades.
-
-</p>
-
-<a class="button"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Tarot"
-target="_blank">
-
-Consultar Tarot
-
-</a>
-
+<p>Elegí cartas y descubrí una interpretación orientativa.</p>
 </div>
 
-
-<div class="card">
-
-<div class="icon">🌌</div>
-
+<div class="service">
+<div class="icon">🌙</div>
 <h3>Astrología</h3>
-
-<p>
-
-Conocé la energía de tu signo y
-explorá el significado de tu carta natal.
-
-</p>
-
-<a class="button"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Astrolog%C3%ADa"
-target="_blank">
-
-Consultar Astrología
-
-</a>
-
+<p>Conocé la energía relacionada con tu signo.</p>
 </div>
 
-
-<div class="card">
-
+<div class="service">
 <div class="icon">💎</div>
-
-<h3>Piedras energéticas</h3>
-
-<p>
-
-Descubrí qué piedra se asocia
-tradicionalmente con tu signo.
-
-</p>
-
-<a class="button"
-href="#test">
-
-Descubrir mi piedra
-
-</a>
-
+<h3>Piedras</h3>
+<p>Descubrí qué piedra se asocia tradicionalmente con tu signo.</p>
 </div>
-
 
 </div>
 
@@ -773,153 +602,106 @@ Descubrir mi piedra
 </section>
 
 
-<!-- =========================
-     TEST
-========================= -->
+<!-- JUEGO -->
 
-<section class="test-section" id="test">
+<section class="game">
+
+<div class="game-box">
+
+<h2 class="title">🃏 Elegí una carta</h2>
+
+<p class="description">
+Concentrate en una pregunta y elegí una carta.
+No existe una carta correcta o incorrecta.
+</p>
+
+<div class="deck">
+
+<div class="play-card" onclick="reveal(this,'🌙 La Luna')">✦</div>
+
+<div class="play-card" onclick="reveal(this,'☀️ El Sol')">✦</div>
+
+<div class="play-card" onclick="reveal(this,'⭐ La Estrella')">✦</div>
+
+</div>
+
+<div class="result" id="cardResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- TEST -->
+
+<section class="test">
 
 <div class="container">
 
-<h2 class="section-title">
-
-✨ Descubrí tu energía ✨
-
+<h2 class="title">
+✨ Descubrí tu energía
 </h2>
 
-<p class="section-description">
-
-Elegí tu signo y recibí una interpretación
-orientativa junto con una piedra asociada
-tradicionalmente a tu signo.
-
+<p class="description">
+Seleccioná tu signo y descubrí una piedra asociada
+tradicionalmente a él.
 </p>
-
 
 <div class="test-box">
 
-<h3>
+<label>Tu signo</label>
 
-¿Cuál es tu signo?
+<select id="sign">
 
-</h3>
-
-
-<div class="form-group">
-
-<label for="signo">
-
-Seleccioná tu signo zodiacal
-
-</label>
-
-<select id="signo">
-
-<option value="aries">♈ Aries</option>
-
-<option value="tauro">♉ Tauro</option>
-
-<option value="geminis">♊ Géminis</option>
-
-<option value="cancer">♋ Cáncer</option>
-
-<option value="leo">♌ Leo</option>
-
-<option value="virgo">♍ Virgo</option>
-
-<option value="libra">♎ Libra</option>
-
-<option value="escorpio">♏ Escorpio</option>
-
-<option value="sagitario">♐ Sagitario</option>
-
-<option value="capricornio">♑ Capricornio</option>
-
-<option value="acuario">♒ Acuario</option>
-
-<option value="piscis">♓ Piscis</option>
+<option value="Aries">♈ Aries</option>
+<option value="Tauro">♉ Tauro</option>
+<option value="Géminis">♊ Géminis</option>
+<option value="Cáncer">♋ Cáncer</option>
+<option value="Leo">♌ Leo</option>
+<option value="Virgo">♍ Virgo</option>
+<option value="Libra">♎ Libra</option>
+<option value="Escorpio">♏ Escorpio</option>
+<option value="Sagitario">♐ Sagitario</option>
+<option value="Capricornio">♑ Capricornio</option>
+<option value="Acuario">♒ Acuario</option>
+<option value="Piscis">♓ Piscis</option>
 
 </select>
 
-</div>
+<label>Fecha de nacimiento</label>
 
+<input type="date" id="birth">
 
-<div class="form-group">
+<label>Hora de nacimiento</label>
 
-<label for="fecha">
+<input type="time" id="time">
 
-Fecha de nacimiento
+<label>Lugar de nacimiento</label>
 
-</label>
+<input type="text" id="place"
+placeholder="Buenos Aires, Argentina">
 
-<input
-type="date"
-id="fecha">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="hora">
-
-Hora de nacimiento
-
-</label>
-
-<input
-type="time"
-id="hora">
-
-</div>
-
-
-<div class="form-group">
-
-<label for="lugar">
-
-Lugar de nacimiento
-
-</label>
-
-<input
-type="text"
-id="lugar"
-placeholder="Ej: Buenos Aires, Argentina">
-
-</div>
-
-
-<button
-class="test-button"
-onclick="mostrarResultado()">
-
-✨ Ver mi energía
-
+<button class="test-button"
+onclick="energyTest()">
+✨ Descubrir mi energía
 </button>
 
+<div class="test-result" id="testResult">
 
-<div
-class="result"
-id="resultado">
+<h2 id="signName"></h2>
 
-<h3 id="resultadoTitulo"></h3>
+<div class="stone" id="stone"></div>
 
-<div
-class="stone"
-id="resultadoPiedra"></div>
+<p id="energy"></p>
 
-<p id="resultadoTexto"></p>
+<p id="advice"></p>
 
-<p id="resultadoConsejo"></p>
+<br>
 
-<a
-id="resultadoWhatsapp"
-class="button"
+<a class="button"
+id="testWhatsapp"
 target="_blank">
-
-💬 Quiero consultar
-
+💬 Consultar por WhatsApp
 </a>
 
 </div>
@@ -931,118 +713,36 @@ target="_blank">
 </section>
 
 
-<!-- =========================
-     CARTA NATAL
-========================= -->
-
-<section>
-
-<div class="container">
-
-<div class="about-box">
-
-<h2 class="section-title">
-
-🌌 Tu Carta Astral
-
-</h2>
-
-<p>
-
-La carta astral utiliza tu fecha, hora y lugar
-de nacimiento para estudiar la posición de los
-planetas en el momento de tu nacimiento.
-
-</p>
-
-<p>
-
-Los datos ingresados en este test pueden servir
-como punto de partida para una consulta
-astrológica personalizada.
-
-</p>
-
-<a
-class="button"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20mi%20carta%20astral"
-target="_blank">
-
-🌌 Consultar mi carta astral
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     WHATSAPP
-========================= -->
+<!-- CONTACTO -->
 
 <section class="contact">
 
 <div class="container">
 
-<h2 class="section-title">
-
-¿Querés saber más?
-
+<h2 class="title">
+¿Querés profundizar?
 </h2>
 
-<p class="section-description">
-
-Elegí una opción y escribinos directamente
-por WhatsApp.
-
+<p class="description">
+Podés hacer una consulta directamente por WhatsApp.
 </p>
 
+<div class="whatsapp">
 
-<div class="whatsapp-buttons">
-
-
-<a
-class="whatsapp"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Tarot"
+<a href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Tarot"
 target="_blank">
-
 🔮 Tarot
-
 </a>
 
-
-<a
-class="whatsapp gold"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Astrolog%C3%ADa"
+<a href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20Astrolog%C3%ADa"
 target="_blank">
-
-🌌 Astrología
-
+🌙 Astrología
 </a>
 
-
-<a
-class="whatsapp"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20una%20piedra%20energ%C3%A9tica"
+<a href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20consultar%20por%20piedras%20energ%C3%A9ticas"
 target="_blank">
-
 💎 Piedras
-
 </a>
-
-
-<a
-class="whatsapp"
-href="https://wa.me/5491139543790?text=Hola%2C%20quiero%20hacer%20una%20consulta%20espiritual"
-target="_blank">
-
-✨ Consulta espiritual
-
-</a>
-
 
 </div>
 
@@ -1052,185 +752,82 @@ target="_blank">
 
 
 <footer>
-
-© 2026 Ayuda Espiritual · Todos los derechos reservados
-
-<br><br>
-
-Las interpretaciones son de carácter orientativo
-y espiritual.
-
+© 2026 Ayuda Espiritual
+<br>
+Las interpretaciones son de carácter orientativo.
 </footer>
 
 
 <script>
 
-/* =========================
-   DATOS DE LOS SIGNOS
-========================= */
+/* ===== JUEGO DE CARTAS ===== */
 
-const signos = {
+function reveal(card,name){
 
-aries:{
-nombre:"♈ Aries",
-piedra:"❤️ Cornalina",
-texto:"Tu energía se relaciona con la iniciativa, el movimiento y la determinación.",
-consejo:"La cornalina se asocia tradicionalmente con la vitalidad, la motivación y la confianza."
-},
+    document.querySelectorAll(".play-card")
+    .forEach(c=>c.classList.remove("revealed"));
 
-tauro:{
-nombre:"♉ Tauro",
-piedra:"💚 Cuarzo verde",
-texto:"Tu energía busca estabilidad, seguridad y conexión con lo concreto.",
-consejo:"El cuarzo verde se relaciona tradicionalmente con equilibrio, calma y bienestar."
-},
+    card.classList.add("revealed");
 
-geminis:{
-nombre:"♊ Géminis",
-piedra:"💛 Citrino",
-texto:"Tu energía se caracteriza por la curiosidad, la comunicación y la capacidad de adaptación.",
-consejo:"El citrino se asocia tradicionalmente con claridad, creatividad y optimismo."
-},
-
-cancer:{
-nombre:"♋ Cáncer",
-piedra:"🤍 Piedra Luna",
-texto:"Tu energía está vinculada con la sensibilidad, la intuición y el mundo emocional.",
-consejo:"La piedra luna se relaciona tradicionalmente con intuición, sensibilidad y ciclos emocionales."
-},
-
-leo:{
-nombre:"♌ Leo",
-piedra:"🧡 Ojo de tigre",
-texto:"Tu energía busca expresarse, crear y compartir confianza con quienes te rodean.",
-consejo:"El ojo de tigre se asocia tradicionalmente con seguridad, fuerza y determinación."
-},
-
-virgo:{
-nombre:"♍ Virgo",
-piedra:"💚 Amazonita",
-texto:"Tu energía se relaciona con la observación, el análisis y la búsqueda de equilibrio.",
-consejo:"La amazonita se asocia tradicionalmente con calma, comunicación y equilibrio."
-},
-
-libra:{
-nombre:"♎ Libra",
-piedra:"💗 Cuarzo rosa",
-texto:"Tu energía busca armonía, belleza y equilibrio en los vínculos.",
-consejo:"El cuarzo rosa se relaciona tradicionalmente con amor propio, armonía y afecto."
-},
-
-escorpio:{
-nombre:"♏ Escorpio",
-piedra:"🖤 Obsidiana",
-texto:"Tu energía se caracteriza por la intensidad, la transformación y la profundidad.",
-consejo:"La obsidiana se asocia tradicionalmente con introspección, protección simbólica y transformación."
-},
-
-sagitario:{
-nombre:"♐ Sagitario",
-piedra:"💜 Amatista",
-texto:"Tu energía busca expansión, aprendizaje, aventura y nuevos horizontes.",
-consejo:"La amatista se relaciona tradicionalmente con calma, reflexión y claridad interior."
-},
-
-capricornio:{
-nombre:"♑ Capricornio",
-piedra:"🤎 Ojo de tigre",
-texto:"Tu energía se vincula con la perseverancia, la responsabilidad y los objetivos a largo plazo.",
-consejo:"El ojo de tigre se asocia tradicionalmente con determinación, seguridad y enfoque."
-},
-
-acuario:{
-nombre:"♒ Acuario",
-piedra:"💙 Lapislázuli",
-texto:"Tu energía busca libertad, ideas nuevas y formas diferentes de comprender el mundo.",
-consejo:"El lapislázuli se relaciona tradicionalmente con expresión, reflexión y creatividad."
-},
-
-piscis:{
-nombre:"♓ Piscis",
-piedra:"💜 Amatista",
-texto:"Tu energía se caracteriza por la sensibilidad, imaginación e intuición.",
-consejo:"La amatista se asocia tradicionalmente con calma, introspección y conexión interior."
+    document.getElementById("cardResult").innerHTML=
+    "✨ Tu carta es: <strong>"+name+
+    "</strong><br><small>Tomala como una invitación a reflexionar sobre tu situación.</small>";
 }
+
+
+/* ===== TEST ===== */
+
+const data={
+
+Aries:["❤️","Cornalina","Energía de iniciativa, movimiento y determinación."],
+Tauro:["💚","Cuarzo verde","Energía relacionada con estabilidad, calma y seguridad."],
+Géminis:["💛","Citrino","Energía de comunicación, curiosidad y creatividad."],
+Cáncer:["🤍","Piedra Luna","Energía relacionada con sensibilidad e intuición."],
+Leo:["🧡","Ojo de tigre","Energía de confianza, expresión y determinación."],
+Virgo:["💚","Amazonita","Energía de análisis, equilibrio y organización."],
+Libra:["💗","Cuarzo rosa","Energía de armonía, vínculos y equilibrio."],
+Escorpio:["🖤","Obsidiana","Energía de transformación e introspección."],
+Sagitario:["💜","Amatista","Energía de expansión, reflexión y búsqueda."],
+Capricornio:["🤎","Ojo de tigre","Energía de perseverancia y objetivos."],
+Acuario:["💙","Lapislázuli","Energía de creatividad, ideas y libertad."],
+Piscis:["💜","Amatista","Energía de sensibilidad, imaginación e intuición."]
 
 };
 
+function energyTest(){
 
-/* =========================
-   MOSTRAR RESULTADO
-========================= */
+    const sign=document.getElementById("sign").value;
 
-function mostrarResultado(){
+    const info=data[sign];
 
-    const signoSeleccionado =
-        document.getElementById("signo").value;
+    document.getElementById("testResult").style.display="block";
 
-    const signo =
-        signos[signoSeleccionado];
+    document.getElementById("signName").innerText=
+    "♓ Tu energía: "+sign;
 
+    document.getElementById("stone").innerText=
+    info[0]+" "+info[1];
 
-    const fecha =
-        document.getElementById("fecha").value;
+    document.getElementById("energy").innerText=
+    info[2];
 
-    const hora =
-        document.getElementById("hora").value;
+    document.getElementById("advice").innerText=
+    "La piedra se presenta como una asociación espiritual tradicional, no como una propiedad médica o científica.";
 
-    const lugar =
-        document.getElementById("lugar").value;
+    const message=
+    "Hola, hice el test de energía. Soy "+sign+
+    " y me salió "+info[1]+". Me gustaría hacer una consulta.";
 
+    document.getElementById("testWhatsapp").href=
+    "https://wa.me/5491139543790?text="+
+    encodeURIComponent(message);
 
-    document.getElementById("resultado").style.display="block";
-
-
-    document.getElementById("resultadoTitulo").innerText =
-        signo.nombre;
-
-
-    document.getElementById("resultadoPiedra").innerText =
-        signo.piedra;
-
-
-    document.getElementById("resultadoTexto").innerText =
-        signo.texto;
-
-
-    document.getElementById("resultadoConsejo").innerText =
-        signo.consejo;
-
-
-    let mensaje =
-        "Hola, quiero consultar sobre mi energía y mi signo.";
-
-    if(fecha){
-        mensaje += " Mi fecha de nacimiento es " + fecha + ".";
-    }
-
-    if(hora){
-        mensaje += " Nací a las " + hora + ".";
-    }
-
-    if(lugar){
-        mensaje += " Lugar de nacimiento: " + lugar + ".";
-    }
-
-
-    document.getElementById("resultadoWhatsapp").href =
-        "https://wa.me/5491139543790?text=" +
-        encodeURIComponent(mensaje);
-
-
-    document.getElementById("resultado")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    document.getElementById("testResult")
+    .scrollIntoView({behavior:"smooth"});
 
 }
 
 </script>
 
-
 </body>
-
 </html>
